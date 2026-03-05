@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANEVES PLANEJADOS - Móveis Sob Medida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4BC;
+            --black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --white: #ffffff;
+            --cream: #f5f0e8;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .instagram-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+
+        .instagram-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .instagram-float svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-nav img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-nav img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Carousel - SEM LOGO */
+        .hero {
+            margin-top: 80px;
+            position: relative;
+            height: 95vh;
+            overflow: hidden;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 40px 60px;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .carousel-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            max-width: 700px;
+            margin-bottom: 100px;
+        }
+
+        .carousel-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--gold-light);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .carousel-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--white);
+            animation: fadeInUp 1s ease 0.5s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .dot.active {
+            background: var(--gold);
+            transform: scale(1.2);
+            border-color: var(--white);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 175, 55, 0.8);
+            color: var(--black);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: var(--gold);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev { left: 30px; }
+        .carousel-next { right: 30px; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ambientes Section */
+        .ambientes {
+            padding: 100px 0;
+            background: var(--dark-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .section-title p {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        .ambientes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .ambiente-card {
+            position: relative;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+
+        .ambiente-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .ambiente-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .ambiente-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .ambiente-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .ambiente-card:hover .ambiente-overlay {
+            transform: translateY(0);
+        }
+
+        .ambiente-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .ambiente-overlay p {
+            color: #ccc;
+            font-size: 0.95rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .ambiente-card:hover .ambiente-overlay p {
+            opacity: 1;
+        }
+
+        /* Sobre Section */
+        .sobre {
+            padding: 100px 0;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .sobre-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .sobre-text p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .sobre-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            color: #ccc;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sobre-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .sobre-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Diferenciais */
+        .diferenciais {
+            padding: 100px 0;
+            background: var(--dark-gray);
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .diferencial {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s;
+        }
+
+        .diferencial:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .diferencial-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--black);
+        }
+
+        .diferencial h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .diferencial p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Galeria - Grid de Ambientes */
+        .galeria {
+            padding: 100px 0;
+            background: var(--black);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .galeria-item {
+            position: relative;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .galeria-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px 20px 20px;
+            color: white;
+        }
+
+        .galeria-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .galeria-overlay p {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Popup/Lightbox */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .popup-content {
+            position: relative;
+            max-width: 1000px;
+            width: 100%;
+            background: var(--dark-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+        }
+
+        .popup-image-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: var(--black);
+        }
+
+        .popup-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .popup-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 175, 55, 0.9);
+            color: var(--black);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .popup-nav:hover {
+            background: var(--gold);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .popup-prev { left: 20px; }
+        .popup-next { right: 20px; }
+
+        .popup-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.9);
+            border: none;
+            border-radius: 50%;
+            color: var(--black);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-close:hover {
+            background: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .popup-info {
+            padding: 30px;
+            text-align: center;
+            background: var(--dark-gray);
+        }
+
+        .popup-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .popup-info p {
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .popup-counter {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .popup-thumbs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .popup-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+
+        .popup-thumb:hover,
+        .popup-thumb.active {
+            border-color: var(--gold);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .popup-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contato */
+        .contato {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--black) 100%);
+            position: relative;
+        }
+
+        .contato-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contato-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+
+        .contato-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contato-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contato-text h4 {
+            color: var(--white);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contato-text p, .contato-text a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contato-text a:hover {
+            color: var(--gold);
+        }
+
+        .whatsapp-cta {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-cta h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .whatsapp-cta p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            color: #25D366;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            border-top: 2px solid var(--gold);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #888;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: #666;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            50% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 30px;
+            height: 3px;
+            background: var(--gold);
+            transition: all 0.3s;
+        }
+
+        /* Responsivo */
+        @media (max-width: 968px) {
+            .popup-image-container {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .carousel-slide {
+                padding: 20px 30px;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .carousel-content {
+                text-align: center;
+                align-items: center;
+            }
+
+            .carousel-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .carousel-content p {
+                font-size: 1rem;
+            }
+
+            .sobre-content,
+            .contato-content {
+                grid-template-columns: 1fr;
+            }
+
+            .ambientes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .popup-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .popup-prev { left: 10px; }
+            .popup-next { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Instagram Float -->
+    <a href="https://www.instagram.com/mov_planejados_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="instagram-float">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-nav">
+                    <img src="logo marca.png" alt="DANEVES PLANEJADOS">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#ambientes">Ambientes</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Carousel - SEM LOGO -->
+    <section class="hero" id="home">
+        <div class="carousel">
+            <div class="carousel-slide active" style="background-image: url('sala 2,2.png');">
+                <div class="carousel-content">
+                    <h2>Seu Espaço, Sob Medida!</h2>
+                    <p>Móveis planejados que transformam sua casa em um lar único e sofisticado</p>
+                    <a href="https://wa.me/5511988405170" class="btn" target="_blank">Solicite um Orçamento</a>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url('coz\ 1\,1.png');">
+                <div class="carousel-content">
+                    <h2>Cozinhas Planejadas</h2>
+                    <p>Design funcional e elegante para o coração da sua casa</p>
+                    <a href="#ambientes" class="btn">Conheça Nossos Projetos</a>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url('dorm 1,1.png');">
+                <div class="carousel-content">
+                    <h2>Quartos e Closets</h2>
+                    <p>Conforto e organização em perfeita harmonia</p>
+                    <a href="https://wa.me/5511988405176" class="btn" target="_blank">Fale Conosco</a>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url('home\ 1\,1.png');">
+                <div class="carousel-content">
+                    <h2>Escritórios e Home Office</h2>
+                    <p>Produtividade com estilo e sofisticação</p>
+                    <a href="#contato" class="btn">Agende uma Visita</a>
+                </div>
+            </div>
+
+            <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">❮</button>
+            <button class="carousel-nav carousel-next" onclick="changeSlide(1)">❯</button>
+            
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ambientes -->
+    <section class="ambientes" id="ambientes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ambientes</h2>
+                <p>Criamos móveis planejados para todos os espaços da sua casa</p>
+            </div>
+            <div class="ambientes-grid">
+                <div class="ambiente-card">
+                    <img src="coz 1,1.png" alt="Cozinha">
+                    <div class="ambiente-overlay">
+                        <h3>Cozinhas</h3>
+                        <p>Do moderno ao clássico, cozinhas funcionais e belas para reunir a família</p>
+                    </div>
+                </div>
+                <div class="ambiente-card">
+                    <img src="dorm 1,1.png" alt="Quarto">
+                    <div class="ambiente-overlay">
+                        <h3>Quartos</h3>
+                        <p>Quartos e suítes planejadas para seu descanso e bem-estar</p>
+                    </div>
+                </div>
+                <div class="ambiente-card">
+                    <img src="home 1,1.png" alt="Escritório">
+                    <div class="ambiente-overlay">
+                        <h3>Home Office</h3>
+                        <p>Espaços de trabalho ergonômicos e inspiradores</p>
+                    </div>
+                </div>
+                <div class="ambiente-card">
+                    <img src="sala 1,1.png" alt="Sala">
+                    <div class="ambiente-overlay">
+                        <h3>Salas de Estar</h3>
+                        <p>Racks, estantes e painéis para seu momento de lazer</p>
+                    </div>
+                </div>
+                <div class="ambiente-card">
+                    <img src="banheiro 1,1.png" alt="Banheiro">
+                    <div class="ambiente-overlay">
+                        <h3>Banheiros</h3>
+                        <p>Armários e gabinetes sob medida para seu banheiro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <div class="sobre-content">
+                <div class="sobre-text">
+                    <h2>Excelência em Móveis Planejados</h2>
+                    <p>A DANEVES PLANEJADOS é especialista em criar ambientes únicos e personalizados. Com anos de experiência no mercado de marcenaria, combinamos técnica, design e qualidade para entregar móveis que superam expectativas.</p>
+                    <p>Nosso compromisso é com a sua satisfação. Cada projeto é desenvolvido com atenção aos detalhes, utilizando materiais de primeira linha e acabamento impecável.</p>
+                    <div class="sobre-stats">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Anos de Experiência</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Projetos Entregues</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Clientes Satisfeitos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sobre-image">
+                    <img src="sala 2,2.png" alt="Marcenaria">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="diferenciais">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por Que Nos Escolher?</h2>
+                <p>Compromisso com qualidade e satisfação em cada detalhe</p>
+            </div>
+            <div class="diferenciais-grid">
+                <div class="diferencial">
+                    <div class="diferencial-icon">✓</div>
+                    <h3>Projeto Personalizado</h3>
+                    <p>Cada cliente é único, e cada projeto é desenvolvido sob medida para suas necessidades</p>
+                </div>
+                <div class="diferencial">
+                    <div class="diferencial-icon">⚡</div>
+                    <h3>Entrega Pontual</h3>
+                    <p>Compromisso com prazos e agilidade na instalação</p>
+                </div>
+                <div class="diferencial">
+                    <div class="diferencial-icon">★</div>
+                    <h3>Pós Vendas</h3>
+                    <p>Estamos comprometidos em oferecer um suporte ágil e humanizado para resolver qualquer dúvida ou imprevisto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria - Cada ambiente com 5 fotos -->
+    <section class="galeria" id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Trabalhos</h2>
+                <p>Clique em um ambiente para ver todas as fotos</p>
+            </div>
+            
+            <div class="galeria-grid">
+                <!-- Cozinha -->
+                <div class="galeria-item" onclick="openGallery('cozinha')">
+                    <img src="coz 1,1.png" alt="Cozinha">
+                    <div class="galeria-overlay">
+                        <h3>Cozinhas</h3>
+                        <p>Ver 5 fotos</p>
+                    </div>
+                </div>
+
+                <!-- Sala -->
+                <div class="galeria-item" onclick="openGallery('sala')">
+                    <img src="sala 1,1.png" alt="Sala">
+                    <div class="galeria-overlay">
+                        <h3>Salas</h3>
+                        <p>Ver 5 fotos</p>
+                    </div>
+                </div>
+
+                <!-- Dormitório -->
+                <div class="galeria-item" onclick="openGallery('dormitorio')">
+                    <img src="dorm 1,1.png" alt="Dormitório">
+                    <div class="galeria-overlay">
+                        <h3>Dormitórios</h3>
+                        <p>Ver 5 fotos</p>
+                    </div>
+                </div>
+
+                <!-- Banheiro -->
+                <div class="galeria-item" onclick="openGallery('banheiro')">
+                    <img src="banheiro 1,1.png" alt="Banheiro">
+                    <div class="galeria-overlay">
+                        <h3>Banheiros</h3>
+                        <p>Ver 5 fotos</p>
+                    </div>
+                </div>
+
+                <!-- Home Office -->
+                <div class="galeria-item" onclick="openGallery('homeoffice')">
+                    <img src="home 1,1.png" alt="Home Office">
+                    <div class="galeria-overlay">
+                        <h3>Home Office</h3>
+                        <p>Ver 5 fotos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup/Lightbox -->
+    <div id="popup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeGallery()">×</button>
+            
+            <div class="popup-image-container">
+                <button class="popup-nav popup-prev" onclick="changePopupImage(-1)">❮</button>
+                <img id="popup-img" src="" alt="" class="popup-image">
+                <button class="popup-nav popup-next" onclick="changePopupImage(1)">❯</button>
+            </div>
+            
+            <div class="popup-info">
+                <h3 id="popup-title"></h3>
+                <p id="popup-desc"></p>
+                <div class="popup-counter">
+                    <span id="popup-current">1</span> / <span id="popup-total">5</span>
+                </div>
+                <div class="popup-thumbs" id="popup-thumbs"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contato -->
+    <section class="contato" id="contato">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <p>Pronto para transformar seu espaço? Fale conosco!</p>
+            </div>
+            <div class="contato-content">
+                <div class="contato-info">
+                    <h3>Vamos Realizar Seu Projeto</h3>
+                    
+                    <div class="contato-item">
+                        <div class="contato-icon">📍</div>
+                        <div class="contato-text">
+                            <h4>Endereço</h4>
+                            <p>Rua Leonardo Fássio, 86 - Bairro JD Santa Helena<br>São Paulo - SP, 04785-020</p>
+                        </div>
+                    </div>
+
+                    <div class="contato-item">
+                        <div class="contato-icon">📞</div>
+                        <div class="contato-text">
+                            <h4>Telefone</h4>
+                            <p>(11) 98840-5176</p>
+                        </div>
+                    </div>
+
+                    <div class="contato-item">
+                        <div class="contato-icon">✉</div>
+                        <div class="contato-text">
+                            <h4>E-mail</h4>
+                            <a href="mailto:contato@daneves.com.br">contato@daneves.com.br</a>
+                        </div>
+                    </div>
+
+                    <div class="contato-item">
+                        <div class="contato-icon">🕐</div>
+                        <div class="contato-text">
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda a Sexta: 8h às 18h<br>Sábado: 9h às 13h</p>
+                        </div>
+                    </div>
+
+                    <div class="whatsapp-cta">
+                        <h4>💬 Atendimento via WhatsApp</h4>
+                        <p>Resposta rápida e atendimento personalizado</p>
+                        <a href="https://wa.me/5511988405176" class="btn-whatsapp" target="_blank">
+                            <span>📱</span> Iniciar Conversa
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contato-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone / WhatsApp</label>
+                            <input type="tel" id="telefone" name="telefone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ambiente">Ambiente de Interesse</label>
+                            <select id="ambiente" name="ambiente">
+                                <option value="">Selecione...</option>
+                                <option value="cozinha">Cozinha</option>
+                                <option value="quarto">Quarto/Suíte</option>
+                                <option value="closet">Closet</option>
+                                <option value="sala">Sala de Estar</option>
+                                <option value="escritorio">Home Office</option>
+                                <option value="banheiro">Banheiro</option>
+                                <option value="lavanderia">Lavanderia</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" placeholder="Descreva seu projeto..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>DANEVES PLANEJADOS</h4>
+                    <p>Seu Espaço, Sob Medida!<br>Transformando casas em lares únicos e sofisticados há mais de 10 anos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <p>
+                        <a href="#home">Home</a><br>
+                        <a href="#ambientes">Ambientes</a><br>
+                        <a href="#sobre">Sobre Nós</a><br>
+                        <a href="#contato">Contato</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Ambientes</h4>
+                    <p>
+                        <a href="#ambientes">Cozinhas</a><br>
+                        <a href="#ambientes">Quartos</a><br>
+                        <a href="#ambientes">Closets</a><br>
+                        <a href="#ambientes">Home Office</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <p>
+                        <a href="#">Instagram</a><br>
+                        <a href="#">Facebook</a><br>
+                        <a href="#">Pinterest</a><br>
+                        <a href="#">LinkedIn</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DANEVES PLANEJADOS. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5511988405176" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Carousel do Hero
+        let slideIndex = 1;
+        let slideInterval;
+
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("carousel-slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+        }
+
+        function changeSlide(n) {
+            clearInterval(slideInterval);
+            showSlide(slideIndex += n);
+            autoSlide();
+        }
+
+        function currentSlide(n) {
+            clearInterval(slideInterval);
+            showSlide(slideIndex = n);
+            autoSlide();
+        }
+
+        function autoSlide() {
+            slideInterval = setInterval(() => {
+                slideIndex++;
+                showSlide(slideIndex);
+            }, 5000);
+        }
+
+        autoSlide();
+
+        // Dados da Galeria - Cada ambiente com 5 fotos
+        const galleryData = {
+            cozinha: {
+                title: 'Cozinhas Planejadas',
+                desc: 'Design moderno e funcionalidade para o coração da sua casa',
+                photos: [
+                    'coz 1,1.png',
+                    'coz 1,2.png',
+                    'coz 1,3.png',
+                    'coz 1,4.png',
+                    'coz 1,5.png'
+                ]
+            },
+            sala: {
+                title: 'Salas de Estar',
+                desc: 'Elegância e conforto para seus momentos de lazer',
+                photos: [
+                    'sala 1,1.png',
+                    'sala 1,2.png',
+                    'sala 1,3.png',
+                    'sala 1,4.png',
+                    'sala 1,5.png'
+                ]
+            },
+            dormitorio: {
+                title: 'Dormitórios',
+                desc: 'Conforto e organização em perfeita harmonia',
+                photos: [
+                    'dorm 1,1.png',
+                    'dorm 1,2.png',
+                    'dorm 1,3.png',
+                    'dorm 1,4.png',
+                    'dorm 1,5.png'
+                ]
+            },
+            banheiro: {
+                title: 'Banheiros',
+                desc: 'Funcionalidade com design sofisticado',
+                photos: [
+                    'banheiro 1,1.png',
+                    'banheiro 1,2.png',
+                    'banheiro 1,3.png',
+                    'banheiro 1,4.png',
+                    'banheiro 1,5.png'
+                ]
+            },
+            homeoffice: {
+                title: 'Home Office',
+                desc: 'Produtividade com estilo e sofisticação',
+                photos: [
+                    'home 1,1.png',
+                    'home 1,2.png',
+                    'home 1,3.png',
+                    'home 1,4.png',
+                    'home 1,5.png'
+                ]
+            }
+        };
+
+        let currentGallery = null;
+        let currentPhotoIndex = 0;
+
+        function openGallery(ambiente) {
+            currentGallery = galleryData[ambiente];
+            currentPhotoIndex = 0;
+            
+            document.getElementById('popup-title').textContent = currentGallery.title;
+            document.getElementById('popup-desc').textContent = currentGallery.desc;
+            document.getElementById('popup-total').textContent = currentGallery.photos.length;
+            
+            updatePopupImage();
+            generateThumbs();
+            
+            document.getElementById('popup').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            document.getElementById('popup').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            currentGallery = null;
+        }
+
+        function updatePopupImage() {
+            const img = document.getElementById('popup-img');
+            img.style.opacity = '0';
+            
+            setTimeout(() => {
+                img.src = currentGallery.photos[currentPhotoIndex];
+                img.style.opacity = '1';
+            }, 200);
+            
+            document.getElementById('popup-current').textContent = currentPhotoIndex + 1;
+            updateThumbs();
+        }
+
+        function changePopupImage(direction) {
+            currentPhotoIndex += direction;
+            
+            if (currentPhotoIndex >= currentGallery.photos.length) {
+                currentPhotoIndex = 0;
+            } else if (currentPhotoIndex < 0) {
+                currentPhotoIndex = currentGallery.photos.length - 1;
+            }
+            
+            updatePopupImage();
+        }
+
+        function generateThumbs() {
+            const container = document.getElementById('popup-thumbs');
+            container.innerHTML = '';
+            
+            currentGallery.photos.forEach((photo, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'popup-thumb';
+                if (index === 0) thumb.classList.add('active');
+                thumb.onclick = () => {
+                    currentPhotoIndex = index;
+                    updatePopupImage();
+                };
+                
+                const img = document.createElement('img');
+                img.src = photo;
+                img.alt = `Foto ${index + 1}`;
+                
+                thumb.appendChild(img);
+                container.appendChild(thumb);
+            });
+        }
+
+        function updateThumbs() {
+            const thumbs = document.querySelectorAll('.popup-thumb');
+            thumbs.forEach((thumb, index) => {
+                if (index === currentPhotoIndex) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        }
+
+        // Fechar popup com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeGallery();
+            if (e.key === 'ArrowLeft' && currentGallery) changePopupImage(-1);
+            if (e.key === 'ArrowRight' && currentGallery) changePopupImage(1);
+        });
+
+        // Fechar ao clicar fora
+        document.getElementById('popup').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('popup')) {
+                closeGallery();
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
